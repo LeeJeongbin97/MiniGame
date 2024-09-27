@@ -5,33 +5,30 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 5f;
-    [SerializeField] private Vector3 moveDirection;
-    [SerializeField] private Rigidbody rb;
+    [SerializeField] private Rigidbody playerRb;
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            moveDirection = Vector3.forward;
+            Move(Vector3.forward);
         }
         else if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            moveDirection = Vector3.back;
+            Move(Vector3.back);
         }
         else if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            moveDirection = Vector3.left;
+            Move(Vector3.left);
         }
         else if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            moveDirection = Vector3.right;
+            Move(Vector3.right);
         }
-
-        MovePlayer();
     }
 
-    private void MovePlayer()
+    private void Move(Vector3 direction)
     {
-        rb.MovePosition(transform.position + moveDirection * moveSpeed * Time.deltaTime);
+        playerRb.MovePosition(transform.position + direction * moveSpeed * Time.deltaTime);
     }
 }
