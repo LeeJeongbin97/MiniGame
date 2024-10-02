@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovingObject : MonoBehaviour
+public class TestMovingObject : MonoBehaviour
 {
     [SerializeField] private float speed = 5f;
 
